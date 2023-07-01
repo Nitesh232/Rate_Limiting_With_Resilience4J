@@ -1,0 +1,23 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+        
+        
+  endpoint:
+    health:
+      show-details: always
+      
+ 
+resilience4j:
+  ratelimiter:
+    instances:
+      messageService:
+        register-health-indicator: false
+        limit-for-period: 0s
+        limit-refresh-period: 10s
+        timeout-duration: 5s
+        
+        
+        
